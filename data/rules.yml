@@ -1,0 +1,35 @@
+version: "3.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Repeat order
+  steps:
+  - intent: repeat_order
+  - action: action_repeat_order
+
+- rule: Activate pizza form
+  steps:
+  - intent: intention_to_buy
+  - action: utter_intention_to_buy
+  - action: pizza_form
+  - active_loop: pizza_form
+
+- rule: Submit pizza form
+  condition:
+  - active_loop: pizza_form
+  steps:
+  - action: pizza_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_remember

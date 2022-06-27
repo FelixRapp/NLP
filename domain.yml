@@ -1,0 +1,80 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - give_time
+  - intention_to_buy
+  - repeat_order
+  - order_pizza
+  - give_size
+
+entities:
+  - pizza_type
+  - pizza_size
+
+slots:
+  pizza_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+      intent: order_pizza
+
+  pizza_size:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+      intent: give_size
+
+forms:
+  pizza_form:
+    required_slots:
+    - pizza_type
+    - pizza_size
+
+actions:
+  - action_show_time
+  - action_repeat_order
+  - utter_intention_to_buy
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://media0.giphy.com/media/3osxYoufeOGOA7xiX6/giphy.gif"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_intention_to_buy:
+  - text: "What kind of Pizza would you like to eat? We offer Pizza Margaritha, Pizza Salami, Pizza Prosciutto and Pizza Quattro Formaggi."
+
+  utter_ask_pizza_size:
+  - text: "What size should your pizza be? You can choose between small, medium and large!"
+
+  utter_remember:
+  - text: "Thanks. You have successfully ordered a {pizza_size} pizza {pizza_type}!"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

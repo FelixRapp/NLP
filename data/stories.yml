@@ -1,0 +1,60 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: path about time
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: give_time
+  - action: action_show_time
+
+# - story: order pizza
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: intention_to_buy
+#   - action: utter_intention_to_buy
+#   - action: pizza_form
+#   - active_loop: pizza_form
+#   - slot_was_set:
+#     - requested_slot: pizza_type
+#   - slot_was_set:
+#     - pizza_type: margaritha
+#   - slot_was_set:
+#     - requested_slot: pizza_size
+#   - slot_was_set:
+#     - pizza_type: large
+#   - slot_was_set:
+#     - requested_slot: null
+#   - intent: repeat_order
+#   - action: action_repeat_order
+#   - intent: goodbye
+#   - action: utter_goodbye
