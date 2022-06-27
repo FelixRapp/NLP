@@ -23,6 +23,7 @@ nlu:
     - cu
     - good by
     - cee you later
+    - see you later 
     - good night
     - bye
     - goodbye
@@ -38,6 +39,8 @@ nlu:
     - indeed
     - of course
     - that sounds good
+    - great
+    - perfect
     - correct
 
 - intent: deny
@@ -50,12 +53,23 @@ nlu:
     - no way
     - not really
 
+- intent: thankful
+  examples: |
+    - thank you
+    - thanks
+    - thanks a lot
+    - thanks sir
+    - thank you very much
+    - tyvm
+    - ty
+
 - intent: mood_great
   examples: |
     - perfect
     - great
     - amazing
     - feeling like a king
+    - feeling like a queen 
     - wonderful
     - I am feeling very good
     - I am great
@@ -104,6 +118,7 @@ nlu:
     - i am hungry
     - can i get a pizza
     - could you bring me something to eat
+    - i want to order a pizza
 
 - intent: repeat_order
   examples: |
@@ -123,6 +138,9 @@ nlu:
     - i would love to get one pizza [margaritha](pizza_type)
     - could i get a pizza [margaritha](pizza_type) please
     - do you hava a pizza [margaritha](pizza_type) for me please
+    - a pizza [diavolo](pizza_type)
+    - a pizza [speciale](pizza_type) for me
+    - a pizza [funghi](pizza_type) for me please 
 
 - intent: give_size
   examples: |
@@ -132,3 +150,15 @@ nlu:
     - could i have a [medium](pizza_size)
     - could i get a [small](pizza_size) pizza
     - i would love to get a [small](pizza_size) pizza
+    - [small](pizza_size) please
+    - one [xxl](pizza_size) for me please
+    - a [xl](pizza_size) for me
+    - one [big](pizza_size) pizza
+
+- intent: ask_location
+  examples: |
+    - where can i pick up my pizza
+    - where is your restaurant located
+    - can you tell me where your restaurant is located at
+    - where do i pick up my food
+    - where can i get my pizza

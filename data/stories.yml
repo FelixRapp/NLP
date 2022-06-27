@@ -29,32 +29,75 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: path about time
+- story: order pizza
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: give_time
-  - action: action_show_time
+  - intent: intention_to_buy
+  - action: utter_intention_to_buy
+  - action: pizza_form
+  - active_loop: pizza_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - slot_was_set:
+    - pizza_type: margaritha
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - pizza_type: large
+  - slot_was_set:
+    - requested_slot: null
+  - intent: repeat_order
+  - action: action_repeat_order
+  - intent: goodbye
+  - action: utter_goodbye
 
-# - story: order pizza
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: intention_to_buy
-#   - action: utter_intention_to_buy
-#   - action: pizza_form
-#   - active_loop: pizza_form
-#   - slot_was_set:
-#     - requested_slot: pizza_type
-#   - slot_was_set:
-#     - pizza_type: margaritha
-#   - slot_was_set:
-#     - requested_slot: pizza_size
-#   - slot_was_set:
-#     - pizza_type: large
-#   - slot_was_set:
-#     - requested_slot: null
-#   - intent: repeat_order
-#   - action: action_repeat_order
-#   - intent: goodbye
-#   - action: utter_goodbye
+- story: order pizza 2
+  steps:
+  - intent: intention_to_buy
+  - action: utter_intention_to_buy
+  - action: pizza_form
+  - active_loop: pizza_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - slot_was_set:
+    - pizza_type: margaritha
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - pizza_type: large
+  - slot_was_set:
+    - requested_slot: null
+  - intent: thankful
+  - action: utter_thankful 
+  - intent: repeat_order
+  - action: action_repeat_order
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order pizza 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: intention_to_buy
+  - action: utter_intention_to_buy
+  - action: pizza_form
+  - active_loop: pizza_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - slot_was_set:
+    - pizza_type: margaritha
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - pizza_type: large
+  - slot_was_set:
+    - requested_slot: null
+  - intent: thankful
+  - action: utter_thankful
+  - intent: ask_location
+  - action: utter_ask_location 
+  - intent: repeat_order
+  - action: action_repeat_order
+  - intent: goodbye
+  - action: utter_goodbye

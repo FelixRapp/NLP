@@ -13,6 +13,8 @@ intents:
   - repeat_order
   - order_pizza
   - give_size
+  - thankful
+  - ask_location
 
 entities:
   - pizza_type
@@ -45,10 +47,14 @@ actions:
   - action_show_time
   - action_repeat_order
   - utter_intention_to_buy
+  - validate_pizza_form
 
 responses:
   utter_greet:
   - text: "Hey! How can I help you?"
+
+  utter_thankful:
+  - text: "Thank you very much!"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -73,7 +79,10 @@ responses:
   - text: "What size should your pizza be? You can choose between small, medium and large!"
 
   utter_remember:
-  - text: "Thanks. You have successfully ordered a {pizza_size} pizza {pizza_type}!"
+  - text: "Thank you. You have successfully ordered a {pizza_size} size pizza {pizza_type}!"
+
+  utter_ask_location:
+  - text: "Our restaurant is located in Venice, Italy at Pizzastreet 123."
 
 session_config:
   session_expiration_time: 60

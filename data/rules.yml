@@ -17,6 +17,21 @@ rules:
   - intent: repeat_order
   - action: action_repeat_order
 
+- rule: Show time
+  steps:
+  - intent: give_time
+  - action: action_show_time
+
+- rule: Say thank you anytime the user says thanks
+  steps:
+  - intent: thankful
+  - action: utter_thankful
+
+- rule: Tell Location anytime a user asks for it
+  steps:
+  - intent: ask_location
+  - action: utter_ask_location
+
 - rule: Activate pizza form
   steps:
   - intent: intention_to_buy
@@ -33,3 +48,16 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_remember
+
+  # Interruption of pizza form
+- rule: interruption of pizza form
+  condition:
+  # Condition that form is active.
+  - active_loop: pizza_form
+  steps:
+  # This unhappy path handles the case of an intent `give_time`.
+  - intent: give_time
+  - action: action_show_time
+  # Return to form after handling the `give_time` intent
+  - action: pizza_form
+  - active_loop: pizza_form
