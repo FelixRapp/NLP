@@ -49,15 +49,15 @@ rules:
     - requested_slot: null
   - action: utter_remember
 
-  # Interruption of pizza form
+    # Interruption of pizza form
 - rule: interruption of pizza form
   condition:
   # Condition that form is active.
   - active_loop: pizza_form
   steps:
-  # This unhappy path handles the case of an intent `give_time`.
-  - intent: give_time
-  - action: action_show_time
-  # Return to form after handling the `give_time` intent
+  # This unhappy path handles the case of an intent `ask_location`.
+  - intent: ask_location
+  - action: utter_ask_location
+  # Return to form after handling the `ask_location` intent
   - action: pizza_form
   - active_loop: pizza_form

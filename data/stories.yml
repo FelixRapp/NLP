@@ -95,8 +95,6 @@ stories:
     - requested_slot: null
   - intent: thankful
   - action: utter_thankful
-  - intent: ask_location
-  - action: utter_ask_location 
   - intent: repeat_order
   - action: action_repeat_order
   - intent: goodbye
